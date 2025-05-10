@@ -1,0 +1,23 @@
+title: "lionell0901"
+description: "AI 기반 교육을 설계하는 기록"
+baseurl: "" # 꼭 비워두세요 (user repo일 때)
+url: "https://lionell0901.github.io"
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-include-cache
+
+author:
+  name   : lionell0901
+  avatar : /assets/images/avatar.png
+  bio    : "AI 기반 교육 디자이너"
+
+# 기본 페이지 레이아웃 설정
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+minimal_mistakes_skin: "default"
