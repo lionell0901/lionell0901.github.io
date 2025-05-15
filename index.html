@@ -3,78 +3,1219 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lionell0901</title>
+  <title>lionell0901 - 개발자 포트폴리오</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #818CF8;
+      --primary-dark: #4338CA;
+      --secondary: #10B981;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --gray: #64748B;
+      --light-gray: #E2E8F0;
+      --transition: all 0.3s ease;
     }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Noto Sans KR', -apple-system, sans-serif;
+      line-height: 1.7;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
     .container {
-      max-width: 720px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    section:nth-child(even) {
+      background-color: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary);
+      transform: translateX(-50%);
+    }
+    
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1rem;
+      cursor: pointer;
       text-align: center;
     }
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #ccc;
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border: 2px solid var(--primary);
     }
-    h1 {
-      font-size: 2em;
-      margin-top: 20px;
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
     }
-    p {
-      font-size: 1.1em;
-      margin-top: 10px;
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
-    .links a {
-      display: inline-block;
-      margin: 12px 10px;
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* 헤더 & 네비게이션 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+    }
+    
+    header.scrolled {
+      padding: 15px 0;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
       text-decoration: none;
-      color: #0066cc;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    
+    .hamburger .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      background-color: var(--dark);
+      transition: var(--transition);
+    }
+    
+    /* 히어로 섹션 */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-heading {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    
+    .highlight {
+      color: var(--primary);
+    }
+    
+    .hero-subheading {
+      font-size: 1.3rem;
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      max-width: 500px;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 스킬 섹션 */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .skill-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background-color: var(--primary-light);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .skill-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .skill-list {
+      list-style: none;
+    }
+    
+    .skill-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    /* 프로젝트 섹션 */
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .project-tag {
+      background-color: var(--light-gray);
+      color: var(--gray);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
       font-weight: 500;
     }
-    .section {
-      margin-top: 40px;
+    
+    .project-description {
+      color: var(--gray);
+      margin-bottom: 20px;
+      height: 75px;
+      overflow: hidden;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .project-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+    
+    .project-links a:hover {
+      color: var(--primary-dark);
+    }
+    
+    /* 경력 섹션 */
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: var(--light-gray);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      clear: both;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      float: left;
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+      float: right;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border: 4px solid var(--primary);
+      border-radius: 50%;
+      top: 45px;
+      z-index: 1;
+    }
+    
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+    
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+    
+    .timeline-content {
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .timeline-date {
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .timeline-company {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .timeline-description {
+      color: var(--gray);
+    }
+    
+    .timeline-description ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+    
+    .timeline-description li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .timeline-description li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+    }
+    
+    /* 교육 섹션 */
+    .education-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .education-item {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+    
+    .education-date {
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .education-degree {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .education-school {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .education-description {
+      color: var(--gray);
+    }
+    
+    /* 연락처 섹션 */
+    .contact-container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    
+    .contact-info {
+      flex: 1;
+    }
+    
+    .contact-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+    
+    .contact-list {
+      list-style: none;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      background-color: var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .contact-text {
+      font-weight: 500;
+    }
+    
+    .contact-text a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .contact-text a:hover {
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background-color: var(--light-gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+    
+    .contact-form {
+      flex: 1;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--light-gray);
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* 푸터 */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 50px 0 20px;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .footer-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    
+    .footer-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
       text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--light-gray);
+      font-size: 0.9rem;
     }
-    .section h2 {
-      font-size: 1.3em;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 6px;
-      display: inline-block;
+    
+    /* 반응형 디자인 */
+    @media (max-width: 992px) {
+      .hero-heading {
+        font-size: 2.8rem;
+      }
+      
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left;
+      }
+      
+      .timeline-item:nth-child(odd) {
+        float: right;
+        text-align: left;
+      }
+      
+      .timeline-item:nth-child(even) {
+        float: right;
+      }
+      
+      .timeline-item:nth-child(odd)::after {
+        left: 21px;
+        right: auto;
+      }
+      
+      .timeline-item:nth-child(even)::after {
+        left: 21px;
+      }
     }
-    .section p {
-      font-size: 1em;
-      margin: 6px 0;
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: white;
+        text-align: center;
+        transition: var(--transition);
+        z-index: 999;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin: 0;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--light-gray);
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      
+      .hero-heading {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="assets/images/avatar.png" alt="profile" class="avatar" />
-    <h1>lionell0901</h1>
-    <p>AI 기반 교육 디자이너</p>
-
-    <div class="links">
-      <a href="https://www.notion.so/My-Portfolio-1efc757fe74680ef97c7f8484a3d89e9?pvs=4" target="_blank">📘 Notion 포트폴리오</a>
-      <a href="https://lionell210320-1.tistory.com/" target="_blank">✍️ 블로그</a>
-      <a href="https://your-pdf-resume" target="_blank">📄 이력서 (PDF)</a>
-      <a href="mailto:lionell20@naver.com">📧 이메일 문의</a>
+  <!-- 헤더 -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">lionell0901</a>
+        <ul class="nav-links">
+          <li><a href="#about">소개</a></li>
+          <li><a href="#skills">기술 스택</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#experience">경력</a></li>
+          <li><a href="#education">학력</a></li>
+          <li><a href="#contact">연락처</a></li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>📌 이력 및 활동</h2>
-      <p><strong>🎓 한양대학교 교육대학원</strong> – 교육공학 과정 이수 중</p>
-      <p><strong>💻 청년취업사관학교 AI 데이터개발자 과정</strong> – 실전 중심의 AI·데이터 전문가 양성과정 참여 중</p>
-      <p><strong>🌐 AI 그로스 클럽 운영</strong> – 400여 명 규모의 AI 커뮤니티 운영 및 콘텐츠 큐레이션</p>
+  <!-- 히어로 섹션 -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-heading">안녕하세요, <br>저는 <span class="highlight">lionell0901</span>입니다</h1>
+          <p class="hero-subheading">AI 기반 교육 디자이너이자 개발자로서, 교육과 기술을 융합하여 새로운 가치를 창출합니다. 사용자 중심의 설계와 최신 AI 기술을 접목하여 혁신적인 교육 솔루션을 개발하는 것이 저의 목표입니다.</p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+            <a href="#contact" class="btn btn-outline">연락하기</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/images/avatar.png" alt="프로필 이미지">
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <!-- 스킬 섹션 -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">기술 스택</h2>
+        <p class="section-subtitle">제가 능숙하게 다루는 기술들과 개발 언어들입니다.</p>
+      </div>
+      <div class="skills-container">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="skill-title">프론트엔드 개발</h3>
+          <ul class="skill-list">
+            <li>HTML5, CSS3, JavaScript (ES6+)</li>
+            <li>React.js, Next.js</li>
+            <li>반응형 웹 디자인</li>
+            <li>UI/UX 설계</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="skill-title">백엔드 개발</h3>
+          <ul class="skill-list">
+            <li>Node.js, Express</li>
+            <li>RESTful API 설계</li>
+            <li>데이터베이스 설계</li>
+            <li>서버 아키텍처</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="skill-title">AI & 데이터</h3>
+          <ul class="skill-list">
+            <li>Python, TensorFlow, PyTorch</li>
+            <li>데이터 분석 및 시각화</li>
+            <li>머신러닝 모델 개발</li>
+            <li>AI 교육 콘텐츠 개발</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="skill-title">교육 설계</h3>
+          <ul class="skill-list">
+            <li>교육 콘텐츠 개발</li>
+            <li>학습 경험 설계</li>
+            <li>교육용 애플리케이션 개발</li>
+            <li>교육 효과성 평가</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로젝트 섹션 -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">프로젝트</h2>
+        <p class="section-subtitle">제가 진행했던 주요 프로젝트들입니다.</p>
+      </div>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200" alt="AI 교육 플랫폼">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">AI 교육 플랫폼</h3>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">TensorFlow</span>
+            </div>
+            <p class="project-description">AI 기술을 활용한 맞춤형 교육 플랫폼으로, 사용자의 학습 패턴을 분석하여 개인화된 학습 경로를 제공합니다.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-external-link-alt"></i> 데모</a>
+              <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200" alt="AI 학습 도우미">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">AI 학습 도우미</h3>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">React</span>
+            </div>
+            <p class="project-description">자연어 처리 기술을 활용하여 학습자의 질문에 실시간으로 답변하고, 학습 진행 상황을 분석하는 AI 기반 학습 도우미입니다.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-external-link-alt"></i> 데모</a>
+              <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/400x200" alt="교육 데이터 대시보드">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">교육 데이터 대시보드</h3>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">D3.js</span>
+              <span class="project-tag">Express</span>
+              <span class="project-tag">PostgreSQL</span>
+            </div>
+            <p class="project-description">교육 데이터를 실시간으로 시각화하여 학습자와 교육자에게 유용한 인사이트를 제공하는 대시보드 애플리케이션입니다.</p>
+            <div class="project-links">
+              <a href="#"><i class="fas fa-external-link-alt"></i> 데모</a>
+              <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 경력 섹션 -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">경력</h2>
+        <p class="section-subtitle">제가 지금까지 쌓아온 직무 경험입니다.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2023년 1월 - 현재</div>
+            <h3 class="timeline-title">AI 교육 디자이너</h3>
+            <p class="timeline-company">AI 그로스 클럽</p>
+            <div class="timeline-description">
+              <ul>
+                <li>400여 명 규모의 AI 커뮤니티 운영 및 콘텐츠 큐레이션</li>
+                <li>AI 기술 활용 교육 프로그램 개발 및 운영</li>
+                <li>커뮤니티 회원 대상 AI 관련 워크숍 진행</li>
+                <li>주간 AI 트렌드 분석 및 콘텐츠 제작</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2022년 3월 - 2022년 12월</div>
+            <h3 class="timeline-title">교육 콘텐츠 개발자</h3>
+            <p class="timeline-company">에듀테크 스타트업</p>
+            <div class="timeline-description">
+              <ul>
+                <li>온라인 교육 플랫폼을 위한 콘텐츠 기획 및 개발</li>
+                <li>사용자 참여형 인터랙티브 교육 모듈 제작</li>
+                <li>학습자 데이터 분석을 통한 콘텐츠 개선</li>
+                <li>교육 효과성 평가 도구 개발</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2021년 5월 - 2022년 2월</div>
+            <h3 class="timeline-title">교육 프로그램 기획자</h3>
+            <p class="timeline-company">교육 기관</p>
+            <div class="timeline-description">
+              <ul>
+                <li>디지털 리터러시 교육 프로그램 기획 및 진행</li>
+                <li>교육 프로그램 효과성 측정 및 개선</li>
+                <li>학습자 요구 분석 및 교육 자료 개발</li>
+                <li>교육 프로그램 홍보 및 마케팅 지원</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 교육 섹션 -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">학력</h2>
+        <p class="section-subtitle">제가 받은 학위 및 교육입니다.</p>
+      </div>
+      <div class="education-container">
+        <div class="education-item">
+          <div class="education-date">2023년 - 현재</div>
+          <h3 class="education-degree">교육공학 석사 과정</h3>
+          <p class="education-school">한양대학교 교육대학원</p>
+          <p class="education-description">AI 기반 교육 설계 및 평가에 관한 연구를 진행하고 있으며, 특히 인공지능을 교육에 효과적으로 적용하는 방법론에 중점을 두고 연구하고 있습니다.</p>
+        </div>
+        <div class="education-item">
+          <div class="education-date">2023년 - 현재</div>
+          <h3 class="education-degree">AI 데이터개발자 과정</h3>
+          <p class="education-school">청년취업사관학교</p>
+          <p class="education-description">실전 중심의 AI·데이터 전문가 양성과정을 통해 데이터 분석, 머신러닝, 딥러닝 등 AI 개발에 필요한 실무 역량을 키우고 있습니다.</p>
+        </div>
+        <div class="education-item">
+          <div class="education-date">2017년 - 2021년</div>
+          <h3 class="education-degree">교육학 학사</h3>
+          <p class="education-school">OO대학교</p>
+          <p class="education-description">교육과정 설계, 교육심리학, 교육평가론 등을 학습하였으며, 졸업 프로젝트로 AI를 활용한 맞춤형 학습 시스템을 개발하였습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락처 섹션 -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">연락처</h2>
+        <p class="section-subtitle">함께 일하고 싶으시다면 언제든지 연락 주세요.</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3 class="contact-title">연락 정보</h3>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <a href="mailto:lionell20@naver.com">lionell20@naver.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                서울, 대한민국
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="contact-text">
+                <a href="https://www.notion.so/My-Portfolio-1efc757fe74680ef97c7f8484a3d89e9?pvs=4" target="_blank">Notion 포트폴리오</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-blog"></i>
+              </div>
+              <div class="contact-text">
+                <a href="https://lionell210320-1.tistory.com/" target="_blank">기술 블로그</a>
+              </div>
+            </li>
+          </ul>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+              <label class="form-label" for="name">이름</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">이메일</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">제목</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">메시지</label>
+              <textarea class="form-control" id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">메시지 보내기</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">lionell0901</div>
+        <ul class="footer-links">
+          <li><a href="#about">소개</a></li>
+          <li><a href="#skills">기술 스택</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#experience">경력</a></li>
+          <li><a href="#education">학력</a></li>
+          <li><a href="#contact">연락처</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 lionell0901. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 자바스크립트 -->
+  <script>
+    // 모바일 메뉴 토글
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinksItems = document.querySelectorAll('.nav-links li');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
+    navLinksItems.forEach(item => {
+      item.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // 스크롤 시 헤더 스타일 변경
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // 스무스 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
