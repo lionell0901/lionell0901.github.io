@@ -54,6 +54,14 @@
     .section-header {
       text-align: center;
       margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .section-header.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     .section-title {
@@ -73,7 +81,12 @@
       width: 50px;
       height: 3px;
       background-color: var(--primary);
-      transform: translateX(-50%);
+      transform: translateX(-50%) scaleX(0);
+      transition: transform 0.8s ease 0.5s;
+    }
+    
+    .section-header.animate .section-title::after {
+      transform: translateX(-50%) scaleX(1);
     }
     
     .section-subtitle {
@@ -82,6 +95,59 @@
       max-width: 700px;
       margin: 0 auto;
     }
+    
+    /* 애니메이션 클래스들 */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .fade-in-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease;
+    }
+    
+    .fade-in-left.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .fade-in-right.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s ease;
+    }
+    
+    .scale-in.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    /* 딜레이 클래스들 */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
     
     /* 버튼 스타일 */
     .btn {
@@ -105,6 +171,8 @@
     .btn-primary:hover {
       background-color: var(--primary-dark);
       border-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
     }
     
     .btn-outline {
@@ -116,6 +184,8 @@
     .btn-outline:hover {
       background-color: var(--primary);
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
     }
     
     /* 헤더 & 네비게이션 */
@@ -267,7 +337,14 @@
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    
+    .skill-card.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
     
     .skill-card:hover {
@@ -286,6 +363,11 @@
       justify-content: center;
       font-size: 1.8rem;
       margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .skill-card:hover .skill-icon {
+      transform: scale(1.1) rotate(5deg);
     }
     
     .skill-title {
@@ -302,7 +384,20 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.5s ease;
     }
+    
+    .skill-card.animate .skill-list li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .skill-list li:nth-child(1) { transition-delay: 0.1s; }
+    .skill-list li:nth-child(2) { transition-delay: 0.2s; }
+    .skill-list li:nth-child(3) { transition-delay: 0.3s; }
+    .skill-list li:nth-child(4) { transition-delay: 0.4s; }
     
     .skill-list li::before {
       content: '\f00c';
@@ -324,11 +419,18 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
+      transition: all 0.8s ease;
+      opacity: 0;
+      transform: translateY(50px) rotateY(5deg);
+    }
+    
+    .project-card.animate {
+      opacity: 1;
+      transform: translateY(0) rotateY(0deg);
     }
     
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
     
@@ -372,7 +474,20 @@
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 500;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: scale(0.8);
     }
+    
+    .project-card.animate .project-tag {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .project-tag:nth-child(1) { transition-delay: 0.1s; }
+    .project-tag:nth-child(2) { transition-delay: 0.15s; }
+    .project-tag:nth-child(3) { transition-delay: 0.2s; }
+    .project-tag:nth-child(4) { transition-delay: 0.25s; }
     
     .project-description {
       color: var(--gray);
@@ -398,6 +513,7 @@
     
     .project-links a:hover {
       color: var(--primary-dark);
+      transform: translateY(-2px);
     }
     
     /* 경력 섹션 */
@@ -423,15 +539,31 @@
       position: relative;
       width: 50%;
       clear: both;
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+    
+    .timeline-item.animate {
+      opacity: 1;
     }
     
     .timeline-item:nth-child(odd) {
       float: left;
       text-align: right;
+      transform: translateX(-100px);
+    }
+    
+    .timeline-item:nth-child(odd).animate {
+      transform: translateX(0);
     }
     
     .timeline-item:nth-child(even) {
       float: right;
+      transform: translateX(100px);
+    }
+    
+    .timeline-item:nth-child(even).animate {
+      transform: translateX(0);
     }
     
     .timeline-item::after {
@@ -444,6 +576,12 @@
       border-radius: 50%;
       top: 45px;
       z-index: 1;
+      transition: all 0.5s ease;
+    }
+    
+    .timeline-item.animate::after {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
     }
     
     .timeline-item:nth-child(odd)::after {
@@ -459,6 +597,11 @@
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.5s ease;
+    }
+    
+    .timeline-item.animate .timeline-content {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
     
     .timeline-date {
@@ -493,7 +636,20 @@
       margin-bottom: 8px;
       position: relative;
       padding-left: 25px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.5s ease;
     }
+    
+    .timeline-item.animate .timeline-description li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .timeline-description li:nth-child(1) { transition-delay: 0.2s; }
+    .timeline-description li:nth-child(2) { transition-delay: 0.3s; }
+    .timeline-description li:nth-child(3) { transition-delay: 0.4s; }
+    .timeline-description li:nth-child(4) { transition-delay: 0.5s; }
     
     .timeline-description li::before {
       content: '\f00c';
@@ -516,6 +672,19 @@
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+      transition: all 0.8s ease;
+    }
+    
+    .education-item.animate {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    
+    .education-item:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
     
     .education-date {
@@ -566,7 +735,20 @@
       display: flex;
       align-items: center;
       margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.6s ease;
     }
+    
+    .contact-item.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .contact-item:nth-child(1) { transition-delay: 0.1s; }
+    .contact-item:nth-child(2) { transition-delay: 0.2s; }
+    .contact-item:nth-child(3) { transition-delay: 0.3s; }
+    .contact-item:nth-child(4) { transition-delay: 0.4s; }
     
     .contact-icon {
       width: 45px;
@@ -579,6 +761,13 @@
       color: var(--primary);
       font-size: 1.2rem;
       margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover .contact-icon {
+      background-color: var(--primary);
+      color: white;
+      transform: scale(1.1);
     }
     
     .contact-text {
@@ -612,13 +801,25 @@
       color: var(--dark);
       text-decoration: none;
       font-size: 1.2rem;
-      transition: var(--transition);
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: scale(0);
     }
+    
+    .social-link.animate {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .social-link:nth-child(1) { transition-delay: 0.5s; }
+    .social-link:nth-child(2) { transition-delay: 0.6s; }
+    .social-link:nth-child(3) { transition-delay: 0.7s; }
+    .social-link:nth-child(4) { transition-delay: 0.8s; }
     
     .social-link:hover {
       background-color: var(--primary);
       color: white;
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.1);
     }
     
     .contact-form {
@@ -627,11 +828,33 @@
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .contact-form.animate {
+      opacity: 1;
+      transform: translateX(0);
     }
     
     .form-group {
       margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
     }
+    
+    .contact-form.animate .form-group {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .form-group:nth-child(1) { transition-delay: 0.1s; }
+    .form-group:nth-child(2) { transition-delay: 0.2s; }
+    .form-group:nth-child(3) { transition-delay: 0.3s; }
+    .form-group:nth-child(4) { transition-delay: 0.4s; }
+    .form-group:nth-child(5) { transition-delay: 0.5s; }
     
     .form-label {
       display: block;
@@ -736,10 +959,20 @@
       .timeline-item:nth-child(odd) {
         float: right;
         text-align: left;
+        transform: translateX(100px);
+      }
+      
+      .timeline-item:nth-child(odd).animate {
+        transform: translateX(0);
       }
       
       .timeline-item:nth-child(even) {
         float: right;
+        transform: translateX(100px);
+      }
+      
+      .timeline-item:nth-child(even).animate {
+        transform: translateX(0);
       }
       
       .timeline-item:nth-child(odd)::after {
@@ -840,7 +1073,7 @@
   <section class="hero" id="about">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-text">
+        <div class="hero-text fade-in-left">
           <h1 class="hero-heading">안녕하세요, <br>저는 <span class="highlight">lionell0901</span>입니다</h1>
           <p class="hero-subheading">AI 기반 교육 디자이너이자 개발자로서, 교육과 기술을 융합하여 새로운 가치를 창출합니다. 사용자 중심의 설계와 최신 AI 기술을 접목하여 혁신적인 교육 솔루션을 개발하는 것이 저의 목표입니다.</p>
           <div class="hero-buttons">
@@ -848,8 +1081,8 @@
             <a href="#contact" class="btn btn-outline">연락하기</a>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="assets/images/avatar.png" alt="프로필 이미지">
+        <div class="hero-image fade-in-right">
+          <img src="https://via.placeholder.com/400x400" alt="프로필 이미지">
         </div>
       </div>
     </div>
@@ -863,7 +1096,7 @@
         <p class="section-subtitle">제가 능숙하게 다루는 기술들과 개발 언어들입니다.</p>
       </div>
       <div class="skills-container">
-        <div class="skill-card">
+        <div class="skill-card delay-1">
           <div class="skill-icon">
             <i class="fas fa-code"></i>
           </div>
@@ -875,7 +1108,7 @@
             <li>UI/UX 설계</li>
           </ul>
         </div>
-        <div class="skill-card">
+        <div class="skill-card delay-2">
           <div class="skill-icon">
             <i class="fas fa-database"></i>
           </div>
@@ -887,7 +1120,7 @@
             <li>서버 아키텍처</li>
           </ul>
         </div>
-        <div class="skill-card">
+        <div class="skill-card delay-3">
           <div class="skill-icon">
             <i class="fas fa-robot"></i>
           </div>
@@ -899,7 +1132,7 @@
             <li>AI 교육 콘텐츠 개발</li>
           </ul>
         </div>
-        <div class="skill-card">
+        <div class="skill-card delay-4">
           <div class="skill-icon">
             <i class="fas fa-brain"></i>
           </div>
@@ -923,7 +1156,7 @@
         <p class="section-subtitle">제가 진행했던 주요 프로젝트들입니다.</p>
       </div>
       <div class="projects-container">
-        <div class="project-card">
+        <div class="project-card delay-1">
           <div class="project-image">
             <img src="https://via.placeholder.com/400x200" alt="AI 교육 플랫폼">
           </div>
@@ -942,7 +1175,7 @@
             </div>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card delay-2">
           <div class="project-image">
             <img src="https://via.placeholder.com/400x200" alt="AI 학습 도우미">
           </div>
@@ -961,7 +1194,7 @@
             </div>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card delay-3">
           <div class="project-image">
             <img src="https://via.placeholder.com/400x200" alt="교육 데이터 대시보드">
           </div>
@@ -1047,7 +1280,7 @@
         <p class="section-subtitle">함께 일하고 싶으시다면 언제든지 연락 주세요.</p>
       </div>
       <div class="contact-container">
-        <div class="contact-info">
+        <div class="contact-info fade-in-left">
           <h3 class="contact-title">연락 정보</h3>
           <ul class="contact-list">
             <li class="contact-item">
@@ -1183,6 +1416,64 @@
           });
         }
       });
+    });
+
+    // 스크롤 애니메이션 함수
+    function handleScrollAnimation() {
+      const animateElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .section-header, .skill-card, .project-card, .timeline-item, .education-item, .contact-item, .social-link, .contact-form');
+      const triggerBottom = window.innerHeight / 5 * 4;
+
+      animateElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        
+        if (elementTop < triggerBottom) {
+          element.classList.add('animate');
+        }
+      });
+    }
+
+    // 히어로 섹션 즉시 애니메이션
+    window.addEventListener('load', () => {
+      const heroElements = document.querySelectorAll('.hero .fade-in-left, .hero .fade-in-right');
+      setTimeout(() => {
+        heroElements.forEach(element => {
+          element.classList.add('animate');
+        });
+      }, 500);
+      
+      // 초기 스크롤 체크
+      handleScrollAnimation();
+    });
+
+    // 스크롤 이벤트 리스너
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScrollAnimation();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // 인터섹션 옵저버를 사용한 더 정밀한 애니메이션 (선택사항)
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // 모든 애니메이션 요소를 관찰
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .section-header, .skill-card, .project-card, .timeline-item, .education-item, .contact-item, .social-link, .contact-form').forEach(el => {
+      observer.observe(el);
     });
   </script>
 </body>
