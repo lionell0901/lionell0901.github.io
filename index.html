@@ -48,20 +48,27 @@
       padding: 80px 0;
       position: relative;
       z-index: 1;
+      clear: both;
     }
     
     section:nth-child(even) {
       background-color: white;
     }
     
-    #education {
-      padding: 100px 0;
+    #experience {
+      padding: 80px 0 120px 0;
       background-color: var(--light);
+    }
+    
+    #education {
+      padding: 120px 0;
+      background-color: white;
+      margin-top: 50px;
     }
     
     #contact {
       padding: 100px 0;
-      background-color: white;
+      background-color: var(--light);
     }
     
     .section-header {
@@ -534,6 +541,7 @@
       position: relative;
       max-width: 1000px;
       margin: 0 auto;
+      padding-bottom: 50px;
     }
     
     .timeline::after {
@@ -677,6 +685,8 @@
     .education-container {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 10;
     }
     
     .education-item {
@@ -689,7 +699,7 @@
       transform: translateY(50px) scale(0.95);
       transition: all 0.8s ease;
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
     
     .education-item.animate {
@@ -700,7 +710,7 @@
     .education-item:hover {
       transform: translateY(-5px) scale(1.02);
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      z-index: 2;
+      z-index: 11;
     }
     
     .education-date {
@@ -981,10 +991,12 @@
         padding-left: 70px;
         padding-right: 25px;
         text-align: left;
+        float: none;
+        clear: both;
       }
       
       .timeline-item:nth-child(odd) {
-        float: right;
+        float: none;
         text-align: left;
         transform: translateX(100px);
       }
@@ -994,7 +1006,7 @@
       }
       
       .timeline-item:nth-child(even) {
-        float: right;
+        float: none;
         transform: translateX(100px);
       }
       
@@ -1109,7 +1121,7 @@
           </div>
         </div>
         <div class="hero-image fade-in-right">
-          <img src="assets/images/avatar.png" alt="프로필 이미지">
+          <img src="https://via.placeholder.com/400x400/4F46E5/ffffff?text=Profile" alt="프로필 이미지">
         </div>
       </div>
     </div>
