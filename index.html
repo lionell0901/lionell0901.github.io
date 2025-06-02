@@ -1700,7 +1700,7 @@
           </div>
         </div>
         <div class="contact-form">
-          <form id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/xyzjyzzv" method="POST">
             <div class="form-group">
               <label class="form-label" for="name">이름</label>
               <input type="text" class="form-control" id="name" name="name" required>
@@ -1885,14 +1885,24 @@
       loading.style.display = 'inline-block';
       
       try {
-        // 실제 환경에서는 Formspree나 다른 서비스를 사용
-        // 여기서는 시뮬레이션
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Formspree로 실제 전송
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
         
-        utils.showToast('메시지가 성공적으로 전송되었습니다!', 'success');
-        contactForm.reset();
+        if (response.ok) {
+          utils.showToast('메시지가 성공적으로 전송되었습니다! 빠른 시일 내에 답변드리겠습니다.', 'success');
+          contactForm.reset();
+        } else {
+          throw new Error('전송 실패');
+        }
       } catch (error) {
-        utils.showToast('메시지 전송에 실패했습니다. 다시 시도해주세요.', 'error');
+        utils.showToast('메시지 전송에 실패했습니다. 잠시 후 다시 시도해주세요.', 'error');
       } finally {
         // 로딩 상태 해제
         submitBtn.disabled = false;
