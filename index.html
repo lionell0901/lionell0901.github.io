@@ -1701,6 +1701,8 @@
         </div>
         <div class="contact-form">
           <form id="contactForm" action="https://formspree.io/f/xyzjyzzv" method="POST">
+            <input type="hidden" name="_next" value="thank-you.html">
+            <input type="hidden" name="_subject" value="포트폴리오에서 새 메시지!">
             <div class="form-group">
               <label class="form-label" for="name">이름</label>
               <input type="text" class="form-control" id="name" name="name" required>
@@ -1831,16 +1833,15 @@
       });
     });
 
-    // 개선된 연락 폼 처리
+    // 개선된 연락 폼 처리 - Formspree 호환성 개선
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
     const btnText = submitBtn.querySelector('.btn-text');
     const loading = submitBtn.querySelector('.loading');
 
+    // Formspree 첫 전송 테스트를 위해 기본 폼 전송도 허용
     contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      // 폼 유효성 검사
+      // 폼 유효성 검사만 수행하고, 실패시에만 preventDefault
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const subject = document.getElementById('subject').value.trim();
@@ -1877,38 +1878,19 @@
         isValid = false;
       }
       
-      if (!isValid) return;
+      // 유효성 검사 실패시에만 기본 동작 막기
+      if (!isValid) {
+        e.preventDefault();
+        return;
+      }
       
-      // 로딩 상태 표시
+      // 유효성 검사 통과시 기본 HTML 폼 전송 허용
+      // 로딩 상태만 표시
       submitBtn.disabled = true;
       btnText.style.display = 'none';
       loading.style.display = 'inline-block';
       
-      try {
-        // Formspree로 실제 전송
-        const formData = new FormData(contactForm);
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (response.ok) {
-          utils.showToast('메시지가 성공적으로 전송되었습니다! 빠른 시일 내에 답변드리겠습니다.', 'success');
-          contactForm.reset();
-        } else {
-          throw new Error('전송 실패');
-        }
-      } catch (error) {
-        utils.showToast('메시지 전송에 실패했습니다. 잠시 후 다시 시도해주세요.', 'error');
-      } finally {
-        // 로딩 상태 해제
-        submitBtn.disabled = false;
-        btnText.style.display = 'inline';
-        loading.style.display = 'none';
-      }
+      // Formspree가 페이지를 리다이렉트하므로 로딩 상태 유지
     });
 
     // 실시간 폼 유효성 검사
