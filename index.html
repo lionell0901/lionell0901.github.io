@@ -27,7 +27,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -43,6 +43,8 @@
       --success: #10B981;
       --error: #EF4444;
       --warning: #F59E0B;
+      --accent: #10B981;
+      --info: #06B6D4;
     }
     
     * {
@@ -120,8 +122,22 @@
       clear: both;
     }
     
+    section:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+      opacity: 0.3;
+    }
+    
     section:nth-child(even) {
-      background-color: white;
+      background: linear-gradient(180deg, #fafbff 0%, #f8fafc 100%);
+      border-top: 1px solid rgba(79, 70, 229, 0.05);
+      border-bottom: 1px solid rgba(79, 70, 229, 0.05);
     }
     
     #experience {
@@ -238,7 +254,7 @@
     .delay-5 { transition-delay: 0.5s; }
     .delay-6 { transition-delay: 0.6s; }
     
-    /* 버튼 스타일 개선 */
+    /* 향상된 버튼 스타일 */
     .btn {
       display: inline-block;
       padding: 16px 36px;
@@ -259,33 +275,40 @@
       letter-spacing: 0.5px;
     }
     
-    .btn::before {
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white;
+      border: none;
+      box-shadow: 
+        0 4px 15px rgba(79, 70, 229, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary::after {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
     }
     
-    .btn:hover::before {
+    .btn-primary:hover::after {
       left: 100%;
     }
     
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-      border: 2px solid var(--primary);
-      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
-    }
-    
     .btn-primary:hover {
-      background-color: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.4);
+      background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%);
+      transform: translateY(-2px);
+      box-shadow: 
+        0 8px 25px rgba(79, 70, 229, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
     
     .btn-primary:disabled {
@@ -391,13 +414,30 @@
       transition: var(--transition);
     }
     
-    /* 히어로 섹션 */
+    /* 향상된 히어로 섹션 */
     .hero {
       height: 100vh;
       display: flex;
       align-items: center;
-      background-color: white;
+      background: 
+        linear-gradient(135deg, rgba(79, 70, 229, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%),
+        radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
       padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%234F46E5" fill-opacity="0.02"><circle cx="30" cy="30" r="2"/></g></g></svg>');
+      opacity: 0.4;
+      pointer-events: none;
     }
     
     .hero-content {
@@ -413,14 +453,19 @@
     
     .hero-heading {
       font-size: 3.8rem;
-      font-weight: 800;
+      font-weight: 300;
       line-height: 1.2;
       margin-bottom: 25px;
       letter-spacing: -1px;
     }
     
     .highlight {
-      color: var(--primary);
+      font-weight: 800;
+      background: linear-gradient(135deg, #4F46E5 0%, #10B981 50%, #06B6D4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
     }
     
     .hero-subheading {
@@ -450,7 +495,7 @@
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     }
     
-    /* 스킬 섹션 개선 */
+    /* 글래스모피즘 스킬 섹션 */
     .skills-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -458,14 +503,18 @@
     }
     
     .skill-card {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       border-radius: 15px;
       padding: 35px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s ease;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       opacity: 0;
       transform: translateY(50px);
-      border: 1px solid rgba(79, 70, 229, 0.1);
     }
     
     .skill-card.animate {
@@ -474,26 +523,49 @@
     }
     
     .skill-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border-color: rgba(79, 70, 229, 0.2);
     }
     
     .skill-icon {
       width: 70px;
       height: 70px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 16px;
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #10B981 100%);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2rem;
       margin-bottom: 25px;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      box-shadow: 
+        0 8px 16px rgba(79, 70, 229, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .skill-icon::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+      border-radius: 14px;
+      pointer-events: none;
     }
     
     .skill-card:hover .skill-icon {
       transform: scale(1.1) rotate(5deg);
+      box-shadow: 
+        0 12px 24px rgba(79, 70, 229, 0.4),
+        0 4px 8px rgba(0, 0, 0, 0.15);
     }
     
     .skill-title {
@@ -542,7 +614,7 @@
       margin-top: 2px;
     }
     
-    /* 프로젝트 섹션 개선 */
+    /* 향상된 프로젝트 섹션 */
     .projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -550,14 +622,18 @@
     }
     
     .project-card {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
       transition: all 0.8s ease;
       opacity: 0;
       transform: translateY(50px) rotateY(5deg);
-      border: 1px solid rgba(79, 70, 229, 0.1);
     }
     
     .project-card.animate {
@@ -566,8 +642,12 @@
     }
     
     .project-card:hover {
-      transform: translateY(-15px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border-color: rgba(79, 70, 229, 0.2);
     }
     
     .project-image {
@@ -589,18 +669,39 @@
     
     .project-status {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: var(--success);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-size: 0.85rem;
+      top: 15px;
+      right: 15px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
       font-weight: 600;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .project-status:not(.in-progress) {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
     }
     
     .project-status.in-progress {
-      background-color: var(--warning);
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    }
+    
+    .project-status::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: inherit;
+      border-radius: inherit;
+      filter: blur(6px);
+      opacity: 0.3;
+      z-index: -1;
     }
     
     .project-content {
@@ -679,7 +780,7 @@
       transform: translateY(-2px);
     }
     
-    /* 경력 섹션 */
+    /* 향상된 타임라인 */
     .timeline {
       position: relative;
       max-width: 1000px;
@@ -691,12 +792,18 @@
       content: '';
       position: absolute;
       width: 4px;
-      background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+      background: linear-gradient(to bottom, 
+        #4F46E5 0%, 
+        #7C3AED 25%, 
+        #10B981 50%, 
+        #06B6D4 75%, 
+        #4F46E5 100%);
       top: 0;
       bottom: 0;
       left: 50%;
       margin-left: -2px;
       border-radius: 2px;
+      box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
     }
     
     .timeline-item {
@@ -732,13 +839,15 @@
     }
     
     .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      background-color: white;
-      border: 4px solid var(--primary);
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
+      border: 3px solid white;
       border-radius: 50%;
+      box-shadow: 
+        0 0 0 4px rgba(79, 70, 229, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.15);
+      position: absolute;
       top: 50px;
       z-index: 1;
       transition: all 0.5s ease;
@@ -758,12 +867,16 @@
     }
     
     .timeline-content {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
       transition: all 0.5s ease;
-      border: 1px solid rgba(79, 70, 229, 0.1);
     }
     
     .timeline-item.animate .timeline-content {
@@ -838,17 +951,21 @@
     }
     
     .education-item {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding: 35px;
       border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
       margin-bottom: 35px;
       opacity: 0;
       transform: translateY(50px) scale(0.95);
       transition: all 0.8s ease;
       position: relative;
       z-index: 10;
-      border: 1px solid rgba(79, 70, 229, 0.1);
     }
     
     .education-item.animate {
@@ -858,7 +975,10 @@
     
     .education-item:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
       z-index: 11;
     }
     
@@ -1005,16 +1125,20 @@
     /* 개선된 연락 폼 */
     .contact-form {
       flex: 1;
-      background-color: white;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding: 35px;
       border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
       opacity: 0;
       transform: translateX(50px);
       transition: all 0.8s ease;
       position: relative;
       z-index: 1;
-      border: 1px solid rgba(79, 70, 229, 0.1);
     }
     
     .contact-form.animate {
