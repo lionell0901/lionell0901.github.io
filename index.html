@@ -6,7 +6,7 @@
   <title>lionell0901 - 에듀테크 개발자</title>
   
   <!-- SEO 메타데이터 -->
-  <meta name="description" content="약 7년간 교육 도메인 전문성과 개발 역량을 결합한 에듀테크 개발자. AI 추천 시스템 개발, 650명 커뮤니티 운영, Flask 웹 개발 전문가 lionell0901의 포트폴리오.">
+  <meta name="description" content="7년간 교육 도메인 전문성과 개발 역량을 결합한 에듀테크 개발자. AI 추천 시스템 개발, 650명 커뮤니티 운영, Flask 웹 개발 전문가 lionell0901의 포트폴리오.">
   <meta name="keywords" content="에듀테크, 개발자, AI추천, Flask, Python, 머신러닝, 교육솔루션, 포트폴리오, lionell0901">
   <meta name="author" content="lionell0901">
   
@@ -31,20 +31,37 @@
   
   <style>
     :root {
+      /* 기본 색상 팔레트 */
       --primary: #4F46E5;
       --primary-light: #818CF8;
       --primary-dark: #4338CA;
       --secondary: #10B981;
+      
+      /* 뉴트럴 색상 */
       --dark: #1E293B;
-      --light: #F8FAFC;
+      --gray-dark: #475569;
       --gray: #64748B;
-      --light-gray: #E2E8F0;
-      --transition: all 0.3s ease;
+      --gray-light: #94A3B8;
+      --gray-lightest: #E2E8F0;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      
+      /* 시스템 색상 */
       --success: #10B981;
       --error: #EF4444;
       --warning: #F59E0B;
-      --accent: #10B981;
       --info: #06B6D4;
+      
+      /* 애니메이션 */
+      --transition: all 0.3s ease;
+      --transition-fast: all 0.2s ease;
+      --transition-slow: all 0.6s ease;
+      
+      /* 그림자 */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+      --shadow-primary: 0 4px 15px rgba(79, 70, 229, 0.3);
     }
     
     * {
@@ -65,7 +82,7 @@
     
     body {
       font-family: 'Noto Sans KR', -apple-system, sans-serif;
-      line-height: 1.7;
+      line-height: 1.6;
       background-color: var(--light);
       color: var(--dark);
     }
@@ -73,7 +90,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
     
     /* 알림 토스트 스타일 */
@@ -141,7 +158,7 @@
     }
     
     #experience {
-      padding: 80px 0 120px 0;
+      padding: 80px 0;
       background-color: var(--light);
     }
     
@@ -151,7 +168,7 @@
     }
     
     #contact {
-      padding: 100px 0;
+      padding: 80px 0;
       background-color: var(--light);
     }
     
@@ -159,8 +176,8 @@
       text-align: center;
       margin-bottom: 60px;
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease;
+      transform: translateY(30px);
+      transition: var(--transition-slow);
     }
     
     .section-header.animate {
@@ -169,7 +186,7 @@
     }
     
     .section-title {
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       font-weight: 700;
       position: relative;
       display: inline-block;
@@ -194,8 +211,8 @@
     }
     
     .section-subtitle {
-      color: var(--gray);
-      font-size: 1.2rem;
+      color: var(--gray-dark);
+      font-size: 1.1rem;
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
@@ -204,8 +221,8 @@
     /* 애니메이션 클래스들 */
     .fade-in-up {
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease;
+      transform: translateY(30px);
+      transition: var(--transition-slow);
     }
     
     .fade-in-up.animate {
@@ -215,8 +232,8 @@
     
     .fade-in-left {
       opacity: 0;
-      transform: translateX(-50px);
-      transition: all 0.8s ease;
+      transform: translateX(-30px);
+      transition: var(--transition-slow);
     }
     
     .fade-in-left.animate {
@@ -226,8 +243,8 @@
     
     .fade-in-right {
       opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.8s ease;
+      transform: translateX(30px);
+      transition: var(--transition-slow);
     }
     
     .fade-in-right.animate {
@@ -237,8 +254,8 @@
     
     .scale-in {
       opacity: 0;
-      transform: scale(0.8);
-      transition: all 0.8s ease;
+      transform: scale(0.9);
+      transition: var(--transition-slow);
     }
     
     .scale-in.animate {
@@ -250,41 +267,33 @@
     .delay-1 { transition-delay: 0.1s; }
     .delay-2 { transition-delay: 0.2s; }
     .delay-3 { transition-delay: 0.3s; }
-    .delay-4 { transition-delay: 0.4s; }
-    .delay-5 { transition-delay: 0.5s; }
-    .delay-6 { transition-delay: 0.6s; }
     
     /* 향상된 버튼 스타일 */
     .btn {
-      display: inline-block;
-      padding: 16px 36px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-align: center;
-      min-height: 56px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: 16px 36px;
+      min-height: 48px;
+      border-radius: 10px;
       border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      cursor: pointer;
       position: relative;
       overflow: hidden;
-      letter-spacing: 0.5px;
+      transition: var(--transition);
     }
     
     .btn-primary {
-      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
-      color: white;
-      border: none;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
       box-shadow: 
         0 4px 15px rgba(79, 70, 229, 0.3),
         0 2px 4px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      position: relative;
-      overflow: hidden;
     }
     
     .btn-primary::after {
@@ -295,7 +304,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.6s ease;
+      transition: left var(--transition-slow);
     }
     
     .btn-primary:hover::after {
@@ -303,7 +312,7 @@
     }
     
     .btn-primary:hover {
-      background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%);
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #3730A3 100%);
       transform: translateY(-2px);
       box-shadow: 
         0 8px 25px rgba(79, 70, 229, 0.4),
@@ -312,8 +321,8 @@
     }
     
     .btn-primary:disabled {
-      background-color: var(--gray);
-      border-color: var(--gray);
+      background-color: var(--gray-dark);
+      border-color: var(--gray-dark);
       cursor: not-allowed;
       transform: none;
     }
@@ -326,9 +335,9 @@
     
     .btn-outline:hover {
       background-color: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
     }
     
     /* 헤더 & 네비게이션 */
@@ -378,7 +387,10 @@
       font-weight: 500;
       transition: var(--transition);
       position: relative;
-      padding: 8px 0;
+      padding: 12px 16px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
     
     .nav-links a:hover {
@@ -402,7 +414,11 @@
     
     .hamburger {
       display: none;
+      background: none;
+      border: none;
       cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
     }
     
     .hamburger .bar {
@@ -452,7 +468,7 @@
     }
     
     .hero-heading {
-      font-size: 3.8rem;
+      font-size: 3.2rem;
       font-weight: 300;
       line-height: 1.2;
       margin-bottom: 25px;
@@ -469,8 +485,8 @@
     }
     
     .hero-subheading {
-      font-size: 1.4rem;
-      color: var(--gray);
+      font-size: 1.25rem;
+      color: var(--gray-dark);
       margin-bottom: 35px;
       line-height: 1.6;
     }
@@ -585,7 +601,7 @@
       align-items: flex-start;
       opacity: 0;
       transform: translateX(-20px);
-      transition: all 0.5s ease;
+      transition: var(--transition);
       gap: 12px;
     }
     
@@ -617,13 +633,13 @@
     /* 향상된 프로젝트 섹션 */
     .projects-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 35px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
     }
     
     .project-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
@@ -631,27 +647,27 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
       border-radius: 15px;
       overflow: hidden;
-      transition: all 0.8s ease;
+      transition: var(--transition-slow);
       opacity: 0;
-      transform: translateY(50px) rotateY(5deg);
+      transform: translateY(30px);
     }
     
     .project-card.animate {
       opacity: 1;
-      transform: translateY(0) rotateY(0deg);
+      transform: translateY(0);
     }
     
     .project-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-4px);
       box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.15),
-        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 12px 24px rgba(0, 0, 0, 0.12),
+        0 4px 8px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
       border-color: rgba(79, 70, 229, 0.2);
     }
     
     .project-image {
-      height: 220px;
+      height: 180px;
       overflow: hidden;
       position: relative;
     }
@@ -705,7 +721,7 @@
     }
     
     .project-content {
-      padding: 30px;
+      padding: 24px;
     }
     
     .project-title {
@@ -716,7 +732,7 @@
     }
     
     .project-period {
-      color: var(--gray);
+      color: var(--gray-dark);
       font-size: 0.95rem;
       margin-bottom: 18px;
       font-weight: 500;
@@ -730,8 +746,8 @@
     }
     
     .project-tag {
-      background-color: var(--light-gray);
-      color: var(--gray);
+      background-color: var(--gray-lightest);
+      color: var(--gray-dark);
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 0.85rem;
@@ -746,17 +762,20 @@
       transform: scale(1);
     }
     
-    .project-tag:nth-child(1) { transition-delay: 0.1s; }
-    .project-tag:nth-child(2) { transition-delay: 0.15s; }
-    .project-tag:nth-child(3) { transition-delay: 0.2s; }
-    .project-tag:nth-child(4) { transition-delay: 0.25s; }
+    .project-tag:nth-child(1) { transition-delay: 0.05s; }
+    .project-tag:nth-child(2) { transition-delay: 0.1s; }
+    .project-tag:nth-child(3) { transition-delay: 0.15s; }
+    .project-tag:nth-child(4) { transition-delay: 0.2s; }
     
     .project-description {
       color: var(--gray);
       margin-bottom: 25px;
-      height: 80px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
       overflow: hidden;
-      line-height: 1.6;
+      min-height: 60px;
     }
     
     .project-links {
@@ -850,7 +869,7 @@
       position: absolute;
       top: 50px;
       z-index: 1;
-      transition: all 0.5s ease;
+      transition: var(--transition);
     }
     
     .timeline-item.animate::after {
@@ -867,8 +886,8 @@
     }
     
     .timeline-content {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.1),
@@ -876,7 +895,7 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
       padding: 30px;
       border-radius: 15px;
-      transition: all 0.5s ease;
+      transition: var(--transition);
       min-width: 400px;
     }
     
@@ -919,7 +938,7 @@
       padding-left: 30px;
       opacity: 0;
       transform: translateX(-20px);
-      transition: all 0.5s ease;
+      transition: var(--transition);
       line-height: 1.6;
       word-break: keep-all;
       hyphens: none;
@@ -930,10 +949,10 @@
       transform: translateX(0);
     }
     
-    .timeline-description li:nth-child(1) { transition-delay: 0.2s; }
-    .timeline-description li:nth-child(2) { transition-delay: 0.3s; }
-    .timeline-description li:nth-child(3) { transition-delay: 0.4s; }
-    .timeline-description li:nth-child(4) { transition-delay: 0.5s; }
+    .timeline-description li:nth-child(1) { transition-delay: 0.1s; }
+    .timeline-description li:nth-child(2) { transition-delay: 0.2s; }
+    .timeline-description li:nth-child(3) { transition-delay: 0.3s; }
+    .timeline-description li:nth-child(4) { transition-delay: 0.4s; }
     
     .timeline-description li::before {
       content: '\f00c';
@@ -1000,13 +1019,13 @@
     }
     
     .education-school {
-      color: var(--gray);
+      color: var(--gray-dark);
       font-weight: 500;
       margin-bottom: 18px;
     }
     
     .education-description {
-      color: var(--gray);
+      color: var(--gray-dark);
       line-height: 1.6;
     }
     
@@ -1041,7 +1060,7 @@
       margin-bottom: 25px;
       opacity: 0;
       transform: translateX(-30px);
-      transition: all 0.6s ease;
+      transition: var(--transition-slow);
     }
     
     .contact-item.animate {
@@ -1096,7 +1115,7 @@
     .social-link {
       width: 50px;
       height: 50px;
-      background-color: var(--light-gray);
+      background-color: var(--gray-lightest);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1104,7 +1123,7 @@
       color: var(--dark);
       text-decoration: none;
       font-size: 1.3rem;
-      transition: all 0.5s ease;
+      transition: var(--transition);
       opacity: 0;
       transform: scale(0);
     }
@@ -1153,7 +1172,7 @@
       margin-bottom: 25px;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.5s ease;
+      transition: var(--transition);
     }
     
     .contact-form.animate .form-group {
@@ -1177,7 +1196,7 @@
     .form-control {
       width: 100%;
       padding: 15px 18px;
-      border: 2px solid var(--light-gray);
+      border: 2px solid var(--gray-lightest);
       border-radius: 8px;
       font-size: 16px;
       transition: var(--transition);
@@ -1238,7 +1257,7 @@
     }
     
     .footer-links a {
-      color: var(--light-gray);
+      color: var(--gray-lightest);
       text-decoration: none;
       transition: var(--transition);
       font-weight: 500;
@@ -1252,14 +1271,14 @@
       text-align: center;
       padding-top: 30px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--light-gray);
+      color: var(--gray-lightest);
       font-size: 0.95rem;
     }
     
     /* 반응형 디자인 개선 */
     @media (max-width: 992px) {
       .hero-heading {
-        font-size: 3rem;
+        font-size: 2.6rem;
       }
       
       .hero-content {
@@ -1370,7 +1389,7 @@
       .nav-links li {
         margin: 0;
         padding: 25px 0;
-        border-bottom: 1px solid var(--light-gray);
+        border-bottom: 1px solid var(--gray-lightest);
       }
       
       .hamburger {
@@ -1390,12 +1409,12 @@
       }
       
       .hero-heading {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         line-height: 1.3;
       }
       
       .hero-subheading {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin-bottom: 30px;
       }
       
@@ -1432,23 +1451,23 @@
       }
       
       section {
-        padding: 80px 0;
+        padding: 60px 0;
       }
       
       #experience {
-        padding: 80px 0 100px 0;
+        padding: 60px 0;
       }
       
       #education {
-        padding: 100px 0;
+        padding: 60px 0;
       }
       
       #contact {
-        padding: 100px 0;
+        padding: 60px 0;
       }
       
       .section-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
       
       .skills-container {
@@ -1489,11 +1508,11 @@
       }
       
       .hero-heading {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .hero-subheading {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       
       .hero-image img {
@@ -1501,7 +1520,7 @@
       }
       
       .section-title {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
       }
       
       .skill-card, .project-card {
@@ -1510,8 +1529,9 @@
       
       .hero-buttons .btn {
         width: 200px;
-        padding: 14px 28px;
+        padding: 16px 28px;
         font-size: 1rem;
+        min-height: 48px;
       }
     }
   </style>
@@ -1525,7 +1545,7 @@
     <div class="container">
       <nav>
         <a href="#" class="logo">lionell.dev</a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navigation">
           <li><a href="#about">소개</a></li>
           <li><a href="#experience">경력</a></li>
           <li><a href="#skills">기술 스택</a></li>
@@ -1535,11 +1555,11 @@
           <li><a href="#certifications">자격/인증</a></li>
           <li><a href="#contact">연락처</a></li>
         </ul>
-        <div class="hamburger">
+        <button class="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navigation">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </button>
       </nav>
     </div>
   </header>
@@ -1549,11 +1569,11 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text fade-in-left">
-          <h1 class="hero-heading">교육 현장을, <br><span class="highlight">직접 '체험'한<br> 에듀테크 개발자</span>입니다</h1>
-          <p class="hero-subheading">약 7년간의 교육 경험으로 얻은 아이디어를 MVP로 구현하고, 그 결과를 데이터 분석을 통해 다시 현장에 적용하는 지속가능한 교육 솔루션 만듭니다. <strong>교육 도메인 전문성과 기술 실행력</strong>을 바탕으로 즉시 기여하겠습니다.</p>
+          <h1 class="hero-heading">교육 경험을 기술로, <br><span class="highlight">현장을 혁신하는<br> 에듀테크 개발자</span>입니다</h1>
+          <p class="hero-subheading">7년간의 교육 현장 경험으로 사용자를 깊이 이해하고, AI 추천 시스템과 웹 서비스를 직접 개발하고 배포한 경험으로 아이디어를 현실로 만듭니다. <strong>교육 도메인 전문성과 기술 실행력</strong>을 바탕으로 즉시 기여하겠습니다.</p>
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
-            <a href="https://lionell210320-1.tistory.com/" class="btn btn-outline">블로그 보기</a>
+            <a href="#projects" class="btn btn-primary" aria-label="내 프로젝트 섹션으로 이동">프로젝트 보기</a>
+            <a href="https://lionell210320-1.tistory.com/" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="기술 블로그 새 창에서 열기">블로그 보기</a>
           </div>
         </div>
         <div class="hero-image fade-in-right">
@@ -1588,6 +1608,21 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
+            <div class="timeline-date">2024년 2월 - 현재</div>
+            <h3 class="timeline-title">AI 그로스 클럽 운영</h3>
+            <p class="timeline-company">AI 커뮤니티 (개인 운영)</p>
+            <div class="timeline-description">
+              <ul>
+                <li>650명 규모 AI 커뮤니티 운영 및 참여자 관리</li>
+                <li>MAKE 활용 AI 자동화 챌린지 2기 운영 (총 40명 참여, 100% 완주율)</li>
+                <li>참여자 피드백 기반 워크숍 개선으로 370여명 평점 5.0/5.0 달성</li>
+                <li>AI 도구를 활용한 교육 콘텐츠 기획 및 운영 프로세스 개선</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
             <div class="timeline-date">2024년 5월 - 2025년 2월</div>
             <h3 class="timeline-title">대학교 교육혁신원 비교과 프로그램 담당</h3>
             <p class="timeline-company">한국체육대학교 교육혁신원</p>
@@ -1597,21 +1632,6 @@
                 <li>해외 프로그램 기획 및 학생 매칭 프로세스 운영</li>
                 <li>2억 규모 교육혁신 사업 전주기 기획 및 예산 관리</li>
                 <li>학생역량관리시스템 활용 및 개선 방안 제안</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">2024년 2월 - 2025년 4월</div>
-            <h3 class="timeline-title">AI 그로스 클럽 운영</h3>
-            <p class="timeline-company">AI 커뮤니티 (개인 사이드프로젝트)</p>
-            <div class="timeline-description">
-              <ul>
-                <li>450명 규모 AI 커뮤니티 운영 및 참여자 관리</li>
-                <li>MAKE 활용 AI 자동화 챌린지 2기 운영 (총 40명 참여, 100% 완주율)</li>
-                <li>참여자 피드백 기반 워크숍 개선으로 400여명 평점 5.0/5.0 달성</li>
-                <li>AI 도구를 활용한 교육 콘텐츠 기획 및 운영 프로세스 개선</li>
               </ul>
             </div>
           </div>
@@ -1693,7 +1713,7 @@
               <span class="skill-name">대규모 교육 프로젝트 전주기 관리 (1,500명 규모)</span>
             </li>
             <li>
-              <span class="skill-name">커뮤니티 운영 및 성과 관리 (450명 규모)</span>
+              <span class="skill-name">커뮤니티 운영 및 성과 관리 (650명 규모)</span>
             </li>
             <li>
               <span class="skill-name">사용자 피드백 분석 및 프로그램 개선</span>
@@ -1722,7 +1742,7 @@
           <h3 class="skill-title">AI 기반 커뮤니티 운영</h3>
           <ul class="skill-list">
             <li>
-              <span class="skill-name">450명 커뮤니티 콘텐츠 기획 및 운영</span>
+              <span class="skill-name">650명 커뮤니티 콘텐츠 기획 및 운영</span>
             </li>
             <li>
               <span class="skill-name">참여자 피드백 AI 분석 및 활용</span>
@@ -1762,16 +1782,16 @@
           <h3 class="skill-title">AI 페어 프로그래밍</h3>
           <ul class="skill-list">
             <li>
-              <span class="skill-name">IDE 활용 코드 가속화 (Cursor, Claude 연동)</span>
+              <span class="skill-name">Cursor 기반 코드 구현 (Claude 연동)</span>
             </li>
             <li>
-              <span class="skill-name">터미널(CLI) 환경 개발 자동화 (Gemini CLI)</span>
+              <span class="skill-name">아키텍처 설계 + AI 세부 구현 하이브리드 개발</span>
             </li>
             <li>
-              <span class="skill-name">하이브리드 개발 방식 (설계: Human, 구현: AI)</span>
+              <span class="skill-name">Google Colab + Gemini 데이터 분석</span>
             </li>
             <li>
-              <span class="skill-name">AI 생성 코드 품질 관리 (검증, 보안, 성능 최적화)</span>
+              <span class="skill-name">AI 코드 검증 및 품질 관리</span>
             </li>
           </ul>
         </div>
@@ -1794,7 +1814,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">AI 커뮤니티 플랫폼</h3>
-            <p class="project-period">2025.05 - 현재 (3개월)</p>
+            <p class="project-period">2025.05 - 현재 (2개월)</p>
             <div class="project-tags">
               <span class="project-tag">Next.js</span>
               <span class="project-tag">Django</span>
@@ -1815,7 +1835,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">중장년 AI 커뮤니티 서비스</h3>
-            <p class="project-period">2024.05 - 현재 (3개월)</p>
+            <p class="project-period">2024.05 - 현재 (2개월)</p>
             <div class="project-tags">
               <span class="project-tag">AI 모델 학습</span>
               <span class="project-tag">커뮤니티 플랫폼</span>
@@ -1836,7 +1856,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">AI 강사 컨설팅 서비스</h3>
-            <p class="project-period">2025.05 - 현재 (3개월)</p>
+            <p class="project-period">2025.05 - 현재 (2개월)</p>
             <div class="project-tags">
               <span class="project-tag">Flask</span>
               <span class="project-tag">TF-IDF 알고리즘</span>
@@ -1857,7 +1877,7 @@
          </div>
          <div class="project-content">
            <h3 class="project-title">AI 툴 추천 서비스</h3>
-           <p class="project-period">2025.05 - 현재 (3개월)</p>
+           <p class="project-period">2025.05 - 현재 (2개월)</p>
            <div class="project-tags">
              <span class="project-tag">Django</span>
              <span class="project-tag">UI/UX 디자인</span>
@@ -1878,7 +1898,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">Kaggle 머신러닝 프로젝트 시리즈</h3>
-            <p class="project-period">2025.04 - 현재 (4개월)</p>
+            <p class="project-period">2025.04 - 현재 (3개월)</p>
             <div class="project-tags">
               <span class="project-tag">Python</span>
               <span class="project-tag">머신러닝</span>
@@ -1899,14 +1919,14 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">AI 그로스 클럽 커뮤니티 운영</h3>
-            <p class="project-period">2024.02 - 2025. 04 (14개월)</p>
+            <p class="project-period">2024.02 - 현재 (17개월)</p>
             <div class="project-tags">
               <span class="project-tag">커뮤니티 운영</span>
               <span class="project-tag">AI 교육</span>
               <span class="project-tag">워크숍 기획</span>
               <span class="project-tag">성과 관리</span>
             </div>
-            <p class="project-description">450명 규모의 직장인 대상 AI 활용 커뮤니티를 운영하며, 매주 1-2회 실무 중심 오프라인 워크숍을 진행. 참여자 피드백을 AI로 분석하여 만족도 5.0/5.0을 달성했습니다.</p>
+            <p class="project-description">650명 규모의 직장인 대상 AI 활용 커뮤니티를 운영하며, 매주 1-2회 실무 중심 오프라인 워크숍을 진행. 참여자 피드백을 AI로 분석하여 만족도 5.0/5.0을 달성했습니다.</p>
             <div class="project-links">
               <a href="#" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> 커뮤니티</a>
               <a href="https://lionell210320-1.tistory.com/entry/ChatGPT-강의-만족도-99-2년간-600명-수강생-데이터-분석" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-line"></i> 성과 보고서</a>
@@ -1920,7 +1940,7 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">MAKE 활용 AI 자동화 챌린지</h3>
-            <p class="project-period">2024.11 - 2025.01 (3개월, 2기 운영)</p>
+            <p class="project-period">2024.11 - 2025.01 (2개월, 2기 운영)</p>
             <div class="project-tags">
               <span class="project-tag">교육 설계</span>
               <span class="project-tag">MAKE</span>
@@ -2044,17 +2064,17 @@
           </div>
         </div>
         <div class="contact-form">
-          <form id="contactForm" action="https://formspree.io/f/xyzjyzzv" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/xyzjyzzv" method="POST" novalidate>
             <input type="hidden" name="_next" value="thank-you.html">
             <input type="hidden" name="_subject" value="에듀테크 개발자 포트폴리오에서 새 메시지!">
             <div class="form-group">
               <label class="form-label" for="name">이름</label>
-              <input type="text" class="form-control" id="name" name="name" required>
+              <input type="text" class="form-control" id="name" name="name" required aria-describedby="nameError">
               <div class="form-error" id="nameError">이름을 입력해주세요.</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">이메일</label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailError">
               <div class="form-error" id="emailError">올바른 이메일을 입력해주세요.</div>
             </div>
             <div class="form-group">
@@ -2064,7 +2084,7 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="message">메시지</label>
-              <textarea class="form-control" id="message" name="message" required placeholder="에듀테크 프로젝트 제안이나 협업 관련 문의사항을 자유롭게 작성해주세요."></textarea>
+              <textarea class="form-control" id="message" name="message" required placeholder="에듀테크 프로젝트 제안이나 협업 관련 문의사항을 자유롭게 작성해주세요." aria-describedby="messageError"></textarea>
               <div class="form-error" id="messageError">메시지를 입력해주세요.</div>
             </div>
             <button type="submit" class="btn btn-primary" id="submitBtn">
@@ -2145,8 +2165,10 @@
     const navLinksItems = document.querySelectorAll('.nav-links li');
 
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
+      const isExpanded = hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+      hamburger.setAttribute('aria-label', isExpanded ? '메뉴 닫기' : '메뉴 열기');
     });
 
     // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
@@ -2154,6 +2176,8 @@
       item.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', '메뉴 열기');
       });
     });
 
@@ -2310,6 +2334,8 @@
       if (e.key === 'Escape') {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', '메뉴 열기');
       }
     });
 
