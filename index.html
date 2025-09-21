@@ -10,18 +10,6 @@
   <meta name="keywords" content="AI교육, 기업연수, PPT자동화, AI이미지생성, 업무자동화, 맞춤형교육, 강사포트폴리오, dino.edu">
   <meta name="author" content="dino.edu">
   
-  <!-- Open Graph 메타데이터 -->
-  <meta property="og:title" content="dino.edu - 기업 AI 전환 교육 전문가">
-  <meta property="og:description" content="650명이 검증한 기업 AI 전환 교육 전문가의 강사 포트폴리오">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dino.edu">
-  <meta property="og:image" content="./assets/images/og-image.png">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="dino.edu - 기업 AI 전환 교육 전문가">
-  <meta name="twitter:description" content="650명이 검증한 기업 AI 전환 교육 전문가의 강사 포트폴리오">
-  
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Google Fonts -->
@@ -31,13 +19,10 @@
   
   <style>
     :root {
-      /* 기본 색상 팔레트 */
       --primary: #4F46E5;
       --primary-light: #818CF8;
       --primary-dark: #4338CA;
       --secondary: #10B981;
-      
-      /* 뉴트럴 색상 */
       --dark: #1E293B;
       --gray-dark: #475569;
       --gray: #64748B;
@@ -45,23 +30,7 @@
       --gray-lightest: #E2E8F0;
       --light: #F8FAFC;
       --white: #FFFFFF;
-      
-      /* 시스템 색상 */
-      --success: #10B981;
-      --error: #EF4444;
-      --warning: #F59E0B;
-      --info: #06B6D4;
-      
-      /* 애니메이션 */
       --transition: all 0.3s ease;
-      --transition-fast: all 0.2s ease;
-      --transition-slow: all 0.6s ease;
-      
-      /* 그림자 */
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-      --shadow-primary: 0 4px 15px rgba(79, 70, 229, 0.3);
     }
     
     * {
@@ -69,15 +38,6 @@
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
-    }
-    
-    /* 접근성: 모션 민감도 고려 */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
     }
     
     body {
@@ -93,259 +53,7 @@
       padding: 0 24px;
     }
     
-    /* 알림 토스트 스타일 */
-    .toast {
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      z-index: 9999;
-      background-color: var(--success);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      transform: translateX(400px);
-      transition: transform 0.3s ease;
-    }
-    
-    .toast.show {
-      transform: translateX(0);
-    }
-    
-    .toast.error {
-      background-color: var(--error);
-    }
-    
-    /* 로딩 스피너 */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: white;
-      animation: spin 1s ease-in-out infinite;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    /* 섹션 간격 조정 */
-    section {
-      padding: 80px 0;
-      position: relative;
-      z-index: 1;
-      clear: both;
-    }
-    
-    section:not(:first-child)::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
-      opacity: 0.3;
-    }
-    
-    section:nth-child(even) {
-      background: linear-gradient(180deg, #fafbff 0%, #f8fafc 100%);
-      border-top: 1px solid rgba(79, 70, 229, 0.05);
-      border-bottom: 1px solid rgba(79, 70, 229, 0.05);
-    }
-    
-    #expertise {
-      padding: 80px 0;
-      background-color: var(--light);
-    }
-    
-    #lectures {
-      padding: 80px 0;
-      background-color: white;
-    }
-    
-    #testimonials {
-      padding: 80px 0;
-      background-color: var(--light);
-    }
-    
-    #contact {
-      padding: 80px 0;
-      background-color: white;
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: var(--transition-slow);
-    }
-    
-    .section-header.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      position: relative;
-      display: inline-block;
-      margin-bottom: 20px;
-      color: var(--dark);
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -10px;
-      width: 60px;
-      height: 4px;
-      background-color: var(--primary);
-      transform: translateX(-50%) scaleX(0);
-      transition: transform 0.8s ease 0.5s;
-    }
-    
-    .section-header.animate .section-title::after {
-      transform: translateX(-50%) scaleX(1);
-    }
-    
-    .section-subtitle {
-      color: var(--gray-dark);
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    /* 애니메이션 클래스들 */
-    .fade-in-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: var(--transition-slow);
-    }
-    
-    .fade-in-up.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .fade-in-left {
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: var(--transition-slow);
-    }
-    
-    .fade-in-left.animate {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .fade-in-right {
-      opacity: 0;
-      transform: translateX(30px);
-      transition: var(--transition-slow);
-    }
-    
-    .fade-in-right.animate {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .scale-in {
-      opacity: 0;
-      transform: scale(0.9);
-      transition: var(--transition-slow);
-    }
-    
-    .scale-in.animate {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-    /* 딜레이 클래스들 */
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.2s; }
-    .delay-3 { transition-delay: 0.3s; }
-    
-    /* 향상된 버튼 스타일 */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 36px;
-      min-height: 48px;
-      border-radius: 10px;
-      border: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition);
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: var(--white);
-      box-shadow: 
-        0 4px 15px rgba(79, 70, 229, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
-    
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left var(--transition-slow);
-    }
-    
-    .btn-primary:hover::after {
-      left: 100%;
-    }
-    
-    .btn-primary:hover {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, #3730A3 100%);
-      transform: translateY(-2px);
-      box-shadow: 
-        0 8px 25px rgba(79, 70, 229, 0.4),
-        0 4px 8px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-    
-    .btn-primary:disabled {
-      background-color: var(--gray-dark);
-      border-color: var(--gray-dark);
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .btn-outline {
-      background-color: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-    
-    .btn-outline:hover {
-      background-color: var(--primary);
-      color: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-    }
-    
-    /* 헤더 & 네비게이션 */
+    /* 헤더 */
     header {
       position: fixed;
       top: 0;
@@ -356,10 +64,6 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
       transition: var(--transition);
-    }
-    
-    header.scrolled {
-      padding: 10px 0;
     }
     
     nav {
@@ -380,10 +84,7 @@
     .nav-links {
       display: flex;
       list-style: none;
-    }
-    
-    .nav-links li {
-      margin-left: 35px;
+      gap: 35px;
     }
     
     .nav-links a {
@@ -391,30 +92,11 @@
       color: var(--dark);
       font-weight: 500;
       transition: var(--transition);
-      position: relative;
       padding: 12px 16px;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
     }
     
     .nav-links a:hover {
       color: var(--primary);
-    }
-    
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-    
-    .nav-links a:hover::after {
-      width: 100%;
     }
     
     .hamburger {
@@ -423,7 +105,6 @@
       border: none;
       cursor: pointer;
       padding: 8px;
-      z-index: 1001;
     }
     
     .hamburger .bar {
@@ -435,30 +116,13 @@
       transition: var(--transition);
     }
     
-    /* 향상된 히어로 섹션 */
+    /* 히어로 섹션 */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      background: 
-        linear-gradient(135deg, rgba(79, 70, 229, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%),
-        radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
-      padding-top: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%234F46E5" fill-opacity="0.02"><circle cx="30" cy="30" r="2"/></g></g></svg>');
-      opacity: 0.4;
-      pointer-events: none;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%);
+      padding: 120px 0 80px;
     }
     
     .hero-content {
@@ -486,7 +150,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      position: relative;
     }
     
     .hero-subheading {
@@ -525,6 +188,43 @@
       margin-top: 40px;
     }
     
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 36px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    
     .hero-image {
       flex: 1;
       display: flex;
@@ -539,77 +239,68 @@
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     }
     
-    /* 글래스모피즘 스킬 섹션 */
+    /* 섹션 공통 */
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+    
+    .section-subtitle {
+      color: var(--gray-dark);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* 강의 분야 섹션 */
+    #expertise {
+      background-color: var(--light);
+    }
+    
     .skills-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 35px;
     }
     
     .skill-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
       padding: 35px;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    
-    .skill-card.animate {
-      opacity: 1;
-      transform: translateY(0);
+      transition: var(--transition);
     }
     
     .skill-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.15),
-        0 8px 16px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      border-color: rgba(79, 70, 229, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
     }
     
     .skill-icon {
       width: 70px;
       height: 70px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #10B981 100%);
+      background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2rem;
       margin-bottom: 25px;
-      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      position: relative;
-      box-shadow: 
-        0 8px 16px rgba(79, 70, 229, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .skill-icon::before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
-      border-radius: 14px;
-      pointer-events: none;
-    }
-    
-    .skill-card:hover .skill-icon {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 
-        0 12px 24px rgba(79, 70, 229, 0.4),
-        0 4px 8px rgba(0, 0, 0, 0.15);
     }
     
     .skill-title {
@@ -634,22 +325,10 @@
       margin-bottom: 8px;
       display: flex;
       align-items: flex-start;
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: var(--transition);
       gap: 10px;
       font-size: 0.9rem;
       color: var(--gray);
     }
-    
-    .skill-card.animate .skill-features li {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .skill-features li:nth-child(1) { transition-delay: 0.1s; }
-    .skill-features li:nth-child(2) { transition-delay: 0.2s; }
-    .skill-features li:nth-child(3) { transition-delay: 0.3s; }
     
     .skill-features li::before {
       content: '\f00c';
@@ -660,7 +339,11 @@
       font-size: 0.8rem;
     }
     
-    /* 강의 경험 카드 */
+    /* 강의 경험 섹션 */
+    #lectures {
+      background-color: white;
+    }
+    
     .lectures-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -669,31 +352,16 @@
     
     .lecture-card {
       background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--gray-lightest);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
       padding: 30px;
-      transition: var(--transition-slow);
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    
-    .lecture-card.animate {
-      opacity: 1;
-      transform: translateY(0);
+      transition: var(--transition);
     }
     
     .lecture-card:hover {
       transform: translateY(-8px);
-      box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.15),
-        0 8px 16px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      border-color: rgba(79, 70, 229, 0.2);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
     }
     
     .lecture-header {
@@ -755,7 +423,6 @@
       border: 1px solid rgba(79, 70, 229, 0.2);
       border-radius: 8px;
       padding: 15px;
-      margin-top: 15px;
     }
     
     .lecture-outcome-title {
@@ -772,6 +439,10 @@
     }
     
     /* 수강생 후기 섹션 */
+    #testimonials {
+      background-color: var(--light);
+    }
+    
     .testimonials-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -780,30 +451,17 @@
     
     .testimonial-card {
       background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
       padding: 30px;
-      transition: var(--transition-slow);
-      opacity: 0;
-      transform: translateY(30px);
+      transition: var(--transition);
       position: relative;
-    }
-    
-    .testimonial-card.animate {
-      opacity: 1;
-      transform: translateY(0);
     }
     
     .testimonial-card:hover {
       transform: translateY(-5px);
-      box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.12),
-        0 5px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     }
     
     .testimonial-quote {
@@ -864,83 +522,19 @@
       font-size: 1rem;
     }
     
-    /* 교육 섹션 */
-    .education-container {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
+    /* 연락처 섹션 */
+    #contact {
+      background-color: white;
     }
     
-    .education-item {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-      padding: 35px;
-      border-radius: 15px;
-      margin-bottom: 35px;
-      opacity: 0;
-      transform: translateY(50px) scale(0.95);
-      transition: all 0.8s ease;
-      position: relative;
-      z-index: 10;
-    }
-    
-    .education-item.animate {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    
-    .education-item:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.15),
-        0 8px 16px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-      z-index: 11;
-    }
-    
-    .education-date {
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-    
-    .education-degree {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--dark);
-    }
-    
-    .education-school {
-      color: var(--gray-dark);
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-    
-    .education-description {
-      color: var(--gray-dark);
-      line-height: 1.6;
-    }
-    
-    /* 연락처 섹션 개선 */
     .contact-container {
       display: flex;
       gap: 50px;
       align-items: flex-start;
-      position: relative;
     }
     
     .contact-info {
       flex: 1;
-      position: relative;
-      z-index: 1;
     }
     
     .contact-title {
@@ -958,19 +552,7 @@
       display: flex;
       align-items: center;
       margin-bottom: 25px;
-      opacity: 0;
-      transform: translateX(-30px);
-      transition: var(--transition-slow);
     }
-    
-    .contact-item.animate {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .contact-item:nth-child(1) { transition-delay: 0.1s; }
-    .contact-item:nth-child(2) { transition-delay: 0.2s; }
-    .contact-item:nth-child(3) { transition-delay: 0.3s; }
     
     .contact-icon {
       width: 50px;
@@ -983,12 +565,6 @@
       color: white;
       font-size: 1.3rem;
       margin-right: 18px;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover .contact-icon {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
     }
     
     .contact-text {
@@ -1006,85 +582,18 @@
       color: var(--primary);
     }
     
-    .social-links {
-      display: flex;
-      gap: 18px;
-      margin-top: 35px;
-    }
-    
-    .social-link {
-      width: 50px;
-      height: 50px;
-      background-color: var(--gray-lightest);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--dark);
-      text-decoration: none;
-      font-size: 1.3rem;
-      transition: var(--transition);
-      opacity: 0;
-      transform: scale(0);
-    }
-    
-    .social-link.animate {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-    .social-link:nth-child(1) { transition-delay: 0.4s; }
-    .social-link:nth-child(2) { transition-delay: 0.5s; }
-    .social-link:nth-child(3) { transition-delay: 0.6s; }
-    .social-link:nth-child(4) { transition-delay: 0.7s; }
-    
-    .social-link:hover {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: white;
-      transform: translateY(-5px) scale(1.1);
-    }
-    
-    /* 개선된 연락 폼 */
     .contact-form {
       flex: 1;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        0 2px 8px rgba(0, 0, 0, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--gray-lightest);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       padding: 35px;
       border-radius: 15px;
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.8s ease;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .contact-form.animate {
-      opacity: 1;
-      transform: translateX(0);
     }
     
     .form-group {
       margin-bottom: 25px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: var(--transition);
     }
-    
-    .contact-form.animate .form-group {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    .form-group:nth-child(1) { transition-delay: 0.1s; }
-    .form-group:nth-child(2) { transition-delay: 0.2s; }
-    .form-group:nth-child(3) { transition-delay: 0.3s; }
-    .form-group:nth-child(4) { transition-delay: 0.4s; }
-    .form-group:nth-child(5) { transition-delay: 0.5s; }
     
     .form-label {
       display: block;
@@ -1107,22 +616,6 @@
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-    }
-    
-    .form-control.error {
-      border-color: var(--error);
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-    }
-    
-    .form-error {
-      color: var(--error);
-      font-size: 0.85rem;
-      margin-top: 8px;
-      display: none;
-    }
-    
-    .form-error.show {
-      display: block;
     }
     
     textarea.form-control {
@@ -1175,10 +668,14 @@
       font-size: 0.95rem;
     }
     
-    /* 반응형 디자인 개선 */
-    @media (max-width: 992px) {
-      .hero-heading {
-        font-size: 2.6rem;
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
       }
       
       .hero-content {
@@ -1187,90 +684,8 @@
         gap: 40px;
       }
       
-      .hero-buttons {
-        justify-content: center;
-        margin-bottom: 50px;
-      }
-      
-      .hero-image {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      .hero-image img {
-        max-width: 320px;
-        width: 100%;
-      }
-      
-      .hero {
-        padding-bottom: 80px;
-      }
-      
-      #expertise {
-        padding-top: 120px;
-      }
-      
-      .contact-container {
-        flex-direction: column;
-        gap: 40px;
-      }
-      
-      .contact-info, .contact-form {
-        position: static;
-        z-index: auto;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        flex-direction: column;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        text-align: center;
-        transition: var(--transition);
-        z-index: 999;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      }
-      
-      .nav-links.active {
-        left: 0;
-      }
-      
-      .nav-links li {
-        margin: 0;
-        padding: 25px 0;
-        border-bottom: 1px solid var(--gray-lightest);
-      }
-      
-      .hamburger {
-        display: block;
-      }
-      
-      .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-      }
-      
-      .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-      }
-      
-      .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-      }
-      
       .hero-heading {
         font-size: 2.2rem;
-        line-height: 1.3;
-      }
-      
-      .hero-subheading {
-        font-size: 1.1rem;
-        margin-bottom: 30px;
       }
       
       .hero-stats {
@@ -1281,144 +696,41 @@
         flex-direction: column;
         align-items: center;
         gap: 18px;
-        margin-bottom: 60px;
       }
       
-      .hero-buttons .btn {
-        width: 220px;
-        text-align: center;
-      }
-      
-      .hero-image {
-        max-width: 320px;
-      }
-      
-      .hero-image img {
-        max-width: 250px;
-        width: 100%;
-      }
-      
-      .hero {
-        padding-bottom: 60px;
-        min-height: auto;
-        height: auto;
-      }
-      
-      #expertise {
-        padding-top: 100px;
-        padding-bottom: 80px;
-      }
-      
-      section {
-        padding: 60px 0;
-      }
-      
-      #lectures {
-        padding: 60px 0;
-      }
-      
-      #testimonials {
-        padding: 60px 0;
-      }
-      
-      #contact {
-        padding: 60px 0;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .skills-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .lectures-container {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      
+      .skills-container,
+      .lectures-container,
       .testimonials-container {
         grid-template-columns: 1fr;
-        gap: 25px;
+      }
+      
+      .contact-container {
+        flex-direction: column;
+        gap: 40px;
       }
       
       .footer-content {
         flex-direction: column;
         gap: 25px;
       }
-      
-      .footer-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .toast {
-        right: 15px;
-        left: 15px;
-        width: auto;
-        transform: translateY(-100px);
-      }
-      
-      .toast.show {
-        transform: translateY(0);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 18px;
-      }
-      
-      .hero-heading {
-        font-size: 1.8rem;
-      }
-      
-      .hero-subheading {
-        font-size: 1rem;
-      }
-      
-      .hero-image img {
-        max-width: 200px;
-      }
-      
-      .section-title {
-        font-size: 1.7rem;
-      }
-      
-      .skill-card, .lecture-card, .testimonial-card {
-        padding: 25px;
-      }
-      
-      .hero-buttons .btn {
-        width: 200px;
-        padding: 16px 28px;
-        font-size: 1rem;
-        min-height: 48px;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- 토스트 알림 -->
-  <div class="toast" id="toast"></div>
-
   <!-- 헤더 -->
   <header>
     <div class="container">
       <nav>
         <a href="#" class="logo">dino.edu</a>
-        <ul class="nav-links" id="navigation">
+        <ul class="nav-links">
           <li><a href="#about">소개</a></li>
           <li><a href="#expertise">강의 분야</a></li>
           <li><a href="#lectures">강의 경험</a></li>
           <li><a href="#testimonials">수강생 후기</a></li>
           <li><a href="#education">학력</a></li>
-          <li><a href="#certifications">자격/인증</a></li>
           <li><a href="#contact">연락처</a></li>
         </ul>
-        <button class="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navigation">
+        <button class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -1431,7 +743,7 @@
   <section class="hero" id="about">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-text fade-in-left">
+        <div class="hero-text">
           <h1 class="hero-heading">기업 AI 전환을 이끄는<br><span class="highlight">실무형<br>교육 전문가</span>입니다</h1>
           <p class="hero-subheading">650명이 검증한 AI 교육 전문가로, 기업 특성에 맞는 맞춤형 AI 활용 교육을 통해 <strong>실무 적용률 90%</strong>를 달성했습니다. PPT 자동화부터 업무 프로세스 혁신까지, 기업의 디지털 전환을 성공으로 이끕니다.</p>
           
@@ -1451,12 +763,12 @@
           </div>
           
           <div class="hero-buttons">
-            <a href="#lectures" class="btn btn-primary" aria-label="강의 경험 섹션으로 이동">강의 경험 보기</a>
-            <a href="#contact" class="btn btn-outline" aria-label="강의 문의하기">강의 문의하기</a>
+            <a href="#lectures" class="btn btn-primary">강의 경험 보기</a>
+            <a href="#contact" class="btn btn-outline">강의 문의하기</a>
           </div>
         </div>
-        <div class="hero-image fade-in-right">
-          <img src="./assets/images/avatar.png" alt="dino.edu 프로필 이미지" loading="lazy">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="dino.edu 프로필 이미지" loading="lazy">
         </div>
       </div>
     </div>
@@ -1470,7 +782,7 @@
         <p class="section-subtitle">기업 특성에 맞는 맞춤형 AI 활용 교육으로 실무 적용 가능한 솔루션을 제공합니다.</p>
       </div>
       <div class="skills-container">
-        <div class="skill-card delay-1">
+        <div class="skill-card">
           <div class="skill-icon">
             <i class="fas fa-file-powerpoint"></i>
           </div>
@@ -1482,7 +794,7 @@
             <li>데이터 시각화 자동화 프로세스</li>
           </ul>
         </div>
-        <div class="skill-card delay-2">
+        <div class="skill-card">
           <div class="skill-icon">
             <i class="fas fa-image"></i>
           </div>
@@ -1494,7 +806,7 @@
             <li>저작권 안전한 콘텐츠 제작 가이드</li>
           </ul>
         </div>
-        <div class="skill-card delay-3">
+        <div class="skill-card">
           <div class="skill-icon">
             <i class="fas fa-robot"></i>
           </div>
@@ -1506,7 +818,7 @@
             <li>팀 간 커뮤니케이션 효율성 향상</li>
           </ul>
         </div>
-        <div class="skill-card delay-4">
+        <div class="skill-card">
           <div class="skill-icon">
             <i class="fas fa-users-cog"></i>
           </div>
@@ -1530,7 +842,7 @@
         <p class="section-subtitle">다양한 기업과 기관에서 진행한 AI 활용 교육 실적입니다.</p>
       </div>
       <div class="lectures-container">
-        <div class="lecture-card delay-1">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2025.03</div>
           </div>
@@ -1559,7 +871,7 @@
           </div>
         </div>
 
-        <div class="lecture-card delay-2">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2025.02</div>
           </div>
@@ -1588,7 +900,7 @@
           </div>
         </div>
 
-        <div class="lecture-card delay-3">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2025.01</div>
           </div>
@@ -1617,7 +929,7 @@
           </div>
         </div>
 
-        <div class="lecture-card delay-4">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2024.12</div>
           </div>
@@ -1646,7 +958,7 @@
           </div>
         </div>
 
-        <div class="lecture-card delay-5">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2024.11</div>
           </div>
@@ -1675,7 +987,7 @@
           </div>
         </div>
 
-        <div class="lecture-card delay-6">
+        <div class="lecture-card">
           <div class="lecture-header">
             <div class="lecture-date">2024.10</div>
           </div>
@@ -1715,7 +1027,7 @@
         <p class="section-subtitle">실제 수강생들이 경험한 AI 교육의 효과와 만족도를 확인해보세요.</p>
       </div>
       <div class="testimonials-container">
-        <div class="testimonial-card delay-1">
+        <div class="testimonial-card">
           <i class="fas fa-quote-left testimonial-quote"></i>
           <p class="testimonial-text">
             "PPT 제작에 평균 4시간씩 걸렸는데, 교육 후 1시간 만에 완성할 수 있게 되었습니다. 특히 데이터 시각화 부분이 정말 혁신적이었어요. 업무 효율성이 확실히 향상되었습니다."
@@ -1736,7 +1048,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card delay-2">
+        <div class="testimonial-card">
           <i class="fas fa-quote-left testimonial-quote"></i>
           <p class="testimonial-text">
             "마케팅 콘텐츠 제작이 이렇게 쉬울 줄 몰랐어요. 브랜드 일관성을 유지하면서도 다양한 이미지를 빠르게 만들 수 있게 되어서 팀 전체 생산성이 크게 향상되었습니다."
@@ -1757,7 +1069,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card delay-3">
+        <div class="testimonial-card">
           <i class="fas fa-quote-left testimonial-quote"></i>
           <p class="testimonial-text">
             "복잡했던 재고관리 업무가 자동화되면서 실수도 줄고 시간도 절약되었습니다. 처음에는 어려워 보였는데 단계별로 친절하게 설명해주셔서 쉽게 따라할 수 있었어요."
@@ -1777,122 +1089,41 @@
             <i class="fas fa-star"></i>
           </div>
         </div>
-
-        <div class="testimonial-card delay-4">
-          <i class="fas fa-quote-left testimonial-quote"></i>
-          <p class="testimonial-text">
-            "AI를 단순히 도구로만 생각했는데, 우리 조직의 업무 프로세스를 근본적으로 개선할 수 있는 전략적 도구라는 걸 깨달았습니다. 경영진으로서 매우 유익한 시간이었습니다."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">최</div>
-            <div class="testimonial-info">
-              <h4>최○○ 상무</h4>
-              <p>D 대기업 그룹 전략기획실</p>
-            </div>
-          </div>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-
-        <div class="testimonial-card delay-5">
-          <i class="fas fa-quote-left testimonial-quote"></i>
-          <p class="testimonial-text">
-            "4주간의 챌린지를 통해 완전히 새로운 업무 방식을 경험했습니다. 혼자서는 절대 할 수 없었을 자동화 프로젝트를 완성하게 되어 정말 뿌듯합니다."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">정</div>
-            <div class="testimonial-info">
-              <h4>정○○ 차장</h4>
-              <p>AI 그로스 클럽 수강생</p>
-            </div>
-          </div>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-
-        <div class="testimonial-card delay-6">
-          <i class="fas fa-quote-left testimonial-quote"></i>
-          <p class="testimonial-text">
-            "공공기관에서도 AI를 이렇게 활용할 수 있다는 것이 놀라웠습니다. 민원 응답 시간이 단축되고 업무 품질도 향상되어서 시민분들의 만족도가 높아졌어요."
-          </p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">강</div>
-            <div class="testimonial-info">
-              <h4>강○○ 주무관</h4>
-              <p>E 지방자치단체</p>
-            </div>
-          </div>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- 교육 섹션 -->
+  <!-- 학력 섹션 -->
   <section id="education">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">학력</h2>
         <p class="section-subtitle">AI 기반 교육 혁신을 위한 학습 과정입니다.</p>
       </div>
-      <div class="education-container">
-        <div class="education-item">
-          <div class="education-date">2025년 3월 - 현재</div>
-          <h3 class="education-degree">교육공학 석사 과정</h3>
-          <p class="education-school">한양대학교 교육대학원</p>
-          <p class="education-description">AI 기반 교육 설계 및 평가에 관한 연구를 진행하고 있으며, 특히 인공지능을 교육에 효과적으로 적용하는 방법론에 중점을 두고 연구하고 있습니다.</p>
+      <div class="skills-container">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="skill-title">교육공학 석사 과정</h3>
+          <p class="skill-description">한양대학교 교육대학원 (2025년 3월 - 현재)</p>
+          <ul class="skill-features">
+            <li>AI 기반 교육 설계 및 평가 연구</li>
+            <li>인공지능 교육 적용 방법론 중점 연구</li>
+            <li>교육 효과성 측정 및 개선 방안 연구</li>
+          </ul>
         </div>
-        <div class="education-item">
-          <div class="education-date">2018년 졸업</div>
-          <h3 class="education-degree">스포츠청소년지도학과 학사</h3>
-          <p class="education-school">한국체육대학교</p>
-          <p class="education-description">청소년 교육 및 지도 전문 과정을 수료하였으며, 이후 7년간 공공 청소년시설에서의 실무 경험으로 이어져 교육 도메인 전문성의 기반이 되었습니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 자격 및 인증 섹션 -->
-  <section id="certifications">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">자격 및 인증</h2>
-        <p class="section-subtitle">교육 전문성과 AI 활용 역량을 뒷받침하는 자격증들입니다.</p>
-      </div>
-      <div class="education-container">
-        <div class="education-item">
-          <div class="education-date">교육 전문 분야</div>
-          <h3 class="education-degree">교육 관련 국가자격 다수 보유</h3>
-          <p class="education-school">여성가족부, 문화체육관광부</p>
-          <p class="education-description">청소년지도사 1급, 생활스포츠지도사 2급, 청소년상담사 3급 등 교육 및 지도 분야의 전문성을 인정받은 국가자격증들로, 효과적인 교육 설계와 학습자 관리에 활용하고 있습니다.</p>
-        </div>
-        <div class="education-item">
-          <div class="education-date">정보처리 분야</div>
-          <h3 class="education-degree">컴퓨터그래픽스운용기능사</h3>
-          <p class="education-school">한국산업인력공단</p>
-          <p class="education-description">컴퓨터를 이용한 그래픽 디자인 및 운용 능력을 인정받은 국가기술자격증으로, AI 이미지 생성 교육과 시각적 교육 자료 제작에 활용하고 있습니다.</p>
-        </div>
-        <div class="education-item">
-          <div class="education-date">사무 자동화 분야</div>
-          <h3 class="education-degree">컴퓨터활용능력 2급</h3>
-          <p class="education-school">대한상공회의소</p>
-          <p class="education-description">스프레드시트와 데이터베이스 프로그램 활용 능력을 검증받은 자격증으로, 업무 자동화 교육과 데이터 분석 강의의 기초가 되었습니다.</p>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3 class="skill-title">스포츠청소년지도학과 학사</h3>
+          <p class="skill-description">한국체육대학교 (2018년 졸업)</p>
+          <ul class="skill-features">
+            <li>청소년 교육 및 지도 전문 과정 수료</li>
+            <li>7년간 공공 청소년시설 실무 경험</li>
+            <li>교육 도메인 전문성의 기반 구축</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1906,7 +1137,7 @@
         <p class="section-subtitle">기업 맞춤형 AI 교육이 필요하시다면 언제든지 연락 주세요. 최적의 교육 솔루션을 제안해드리겠습니다.</p>
       </div>
       <div class="contact-container">
-        <div class="contact-info fade-in-left">
+        <div class="contact-info">
           <h3 class="contact-title">연락 정보</h3>
           <ul class="contact-list">
             <li class="contact-item">
@@ -1934,39 +1165,20 @@
               </div>
             </li>
           </ul>
-          <div class="social-links">
-            <a href="https://github.com/lionell0901" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/lionell0901" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://twitter.com/lionell0901" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com/lionell0901" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
         </div>
         <div class="contact-form">
-          <form id="contactForm" action="https://formspree.io/f/xyzjyzzv" method="POST" novalidate>
-            <input type="hidden" name="_next" value="thank-you.html">
-            <input type="hidden" name="_subject" value="AI 교육 전문가 포트폴리오에서 강의 문의!">
+          <form action="https://formspree.io/f/xyzjyzzv" method="POST">
             <div class="form-group">
               <label class="form-label" for="name">담당자명</label>
-              <input type="text" class="form-control" id="name" name="name" required aria-describedby="nameError">
-              <div class="form-error" id="nameError">담당자명을 입력해주세요.</div>
+              <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">이메일</label>
-              <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailError">
-              <div class="form-error" id="emailError">올바른 이메일을 입력해주세요.</div>
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="company">기업/기관명</label>
               <input type="text" class="form-control" id="company" name="company" required>
-              <div class="form-error" id="companyError">기업/기관명을 입력해주세요.</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="subject">희망 교육 분야</label>
@@ -1977,19 +1189,14 @@
                 <option value="업무 자동화">업무 자동화</option>
                 <option value="맞춤형 AI 컨설팅">맞춤형 AI 컨설팅</option>
                 <option value="종합 패키지">종합 패키지</option>
-                <option value="기타">기타 (메시지에 상세 내용 기재)</option>
+                <option value="기타">기타</option>
               </select>
-              <div class="form-error" id="subjectError">희망 교육 분야를 선택해주세요.</div>
             </div>
             <div class="form-group">
               <label class="form-label" for="message">상세 문의 내용</label>
-              <textarea class="form-control" id="message" name="message" required placeholder="• 교육 대상 (직급, 인원수)&#10;• 희망 교육 일정&#10;• 현재 AI 활용 수준&#10;• 기대하는 교육 효과&#10;• 기타 요구사항" aria-describedby="messageError"></textarea>
-              <div class="form-error" id="messageError">상세 문의 내용을 입력해주세요.</div>
+              <textarea class="form-control" id="message" name="message" required placeholder="• 교육 대상 (직급, 인원수)&#10;• 희망 교육 일정&#10;• 현재 AI 활용 수준&#10;• 기대하는 교육 효과&#10;• 기타 요구사항"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" id="submitBtn">
-              <span class="btn-text">강의 문의하기</span>
-              <span class="loading" style="display: none;"></span>
-            </button>
+            <button type="submit" class="btn btn-primary">강의 문의하기</button>
           </form>
         </div>
       </div>
@@ -2007,7 +1214,6 @@
           <li><a href="#lectures">강의 경험</a></li>
           <li><a href="#testimonials">수강생 후기</a></li>
           <li><a href="#education">학력</a></li>
-          <li><a href="#certifications">자격/인증</a></li>
           <li><a href="#contact">연락처</a></li>
         </ul>
       </div>
@@ -2017,74 +1223,7 @@
     </div>
   </footer>
 
-  <!-- 자바스크립트 -->
   <script>
-    // 유틸리티 함수들
-    const utils = {
-      // 토스트 알림 표시
-      showToast(message, type = 'success') {
-        const toast = document.getElementById('toast');
-        toast.textContent = message;
-        toast.className = `toast ${type}`;
-        toast.classList.add('show');
-        
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 3000);
-      },
-      
-      // 이메일 유효성 검사
-      validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-      },
-      
-      // 폼 필드 에러 표시
-      showFieldError(fieldId, errorId, message) {
-        const field = document.getElementById(fieldId);
-        const error = document.getElementById(errorId);
-        field.classList.add('error');
-        error.textContent = message;
-        error.classList.add('show');
-      },
-      
-      // 폼 필드 에러 제거
-      hideFieldError(fieldId, errorId) {
-        const field = document.getElementById(fieldId);
-        const error = document.getElementById(errorId);
-        field.classList.remove('error');
-        error.classList.remove('show');
-      }
-    };
-
-    // 모바일 메뉴 토글
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinksItems = document.querySelectorAll('.nav-links li');
-
-    hamburger.addEventListener('click', () => {
-      const isExpanded = hamburger.classList.toggle('active');
-      navLinks.classList.toggle('active');
-      hamburger.setAttribute('aria-expanded', isExpanded);
-      hamburger.setAttribute('aria-label', isExpanded ? '메뉴 닫기' : '메뉴 열기');
-    });
-
-    // 네비게이션 링크 클릭 시 모바일 메뉴 닫기
-    navLinksItems.forEach(item => {
-      item.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', '메뉴 열기');
-      });
-    });
-
-    // 스크롤 시 헤더 스타일 변경
-    window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
     // 스무스 스크롤
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -2101,126 +1240,11 @@
       });
     });
 
-    // 개선된 연락 폼 처리
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const loading = submitBtn.querySelector('.loading');
-
-    contactForm.addEventListener('submit', async function(e) {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const company = document.getElementById('company').value.trim();
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value.trim();
-      
-      let isValid = true;
-      
-      // 모든 에러 초기화
-      ['name', 'email', 'company', 'subject', 'message'].forEach(field => {
-        utils.hideFieldError(field, field + 'Error');
-      });
-      
-      // 유효성 검사
-      if (!name) {
-        utils.showFieldError('name', 'nameError', '담당자명을 입력해주세요.');
-        isValid = false;
-      }
-      
-      if (!email) {
-        utils.showFieldError('email', 'emailError', '이메일을 입력해주세요.');
-        isValid = false;
-      } else if (!utils.validateEmail(email)) {
-        utils.showFieldError('email', 'emailError', '올바른 이메일 형식이 아닙니다.');
-        isValid = false;
-      }
-      
-      if (!company) {
-        utils.showFieldError('company', 'companyError', '기업/기관명을 입력해주세요.');
-        isValid = false;
-      }
-      
-      if (!subject) {
-        utils.showFieldError('subject', 'subjectError', '희망 교육 분야를 선택해주세요.');
-        isValid = false;
-      }
-      
-      if (!message) {
-        utils.showFieldError('message', 'messageError', '상세 문의 내용을 입력해주세요.');
-        isValid = false;
-      }
-      
-      if (!isValid) {
-        e.preventDefault();
-        return;
-      }
-      
-      submitBtn.disabled = true;
-      btnText.style.display = 'none';
-      loading.style.display = 'inline-block';
-    });
-
-    // 실시간 폼 유효성 검사
-    ['name', 'email', 'company', 'subject', 'message'].forEach(fieldName => {
-      const field = document.getElementById(fieldName);
-      field.addEventListener('blur', () => {
-        if (field.value.trim()) {
-          utils.hideFieldError(fieldName, fieldName + 'Error');
-        }
-      });
-      
-      field.addEventListener('input', () => {
-        if (fieldName === 'email' && field.value.trim() && utils.validateEmail(field.value.trim())) {
-          utils.hideFieldError(fieldName, fieldName + 'Error');
-        }
-      });
-    });
-
-    // 스크롤 애니메이션 함수
-    function handleScrollAnimation() {
-      const animateElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .section-header, .skill-card, .lecture-card, .testimonial-card, .education-item, .contact-item, .social-link, .contact-form');
-      const triggerBottom = window.innerHeight / 5 * 4;
-
-      animateElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        
-        if (elementTop < triggerBottom) {
-          element.classList.add('animate');
-        }
-      });
-    }
-
-    // 히어로 섹션 즉시 애니메이션
-    window.addEventListener('load', () => {
-      const heroElements = document.querySelectorAll('.hero .fade-in-left, .hero .fade-in-right');
-      setTimeout(() => {
-        heroElements.forEach(element => {
-          element.classList.add('animate');
-        });
-      }, 500);
-      
-      handleScrollAnimation();
-    });
-
-    // 스크롤 이벤트 리스너 (성능 최적화)
-    let ticking = false;
+    // 스크롤 시 헤더 스타일 변경
     window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScrollAnimation();
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const header = document.querySelector('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
-
-    // 인터섹션 옵저버를 사용한 더 정밀한 애니메이션
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
+  </script>
+</body>
+</html>
